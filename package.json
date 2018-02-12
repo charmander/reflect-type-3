@@ -1,0 +1,33 @@
+{
+	"name": "reflect-type-3",
+	"version": "1.0.0",
+	"description": "Parser for a simplified, regular subset of JavaScript regex",
+	"keywords": [
+		"regex"
+	],
+	"bugs": "https://github.com/charmander/reflect-type-3/issues",
+	"license": "ISC",
+	"author": {
+		"name": "Charmander",
+		"email": "~@charmander.me",
+		"url": "https://charmander.me/"
+	},
+	"files": [
+		"index.js",
+		"internal/pattern-error.js"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/charmander/reflect-type-3"
+	},
+	"devDependencies": {
+		"@charmander/eslint-config-base": "1.0.3",
+		"@charmander/test": "0.1.0"
+	},
+	"scripts": {
+		"test": "node test"
+	},
+	"engines": {
+		"node": ">=8.0.0"
+	}
+}
