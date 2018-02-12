@@ -262,6 +262,12 @@ test('character ranges', () => {
 	assert.throws(() => {
 		parse(/[a-\d]/);
 	}, /^PatternError: Range missing end at offset 1 in pattern \/\[a-\\d\]\/$/);
+
+	assert.deepStrictEqual(parse(/[a-a]/), parse(/[a]/));
+
+	assert.throws(() => {
+		ret3.parse('[z-a]');
+	}, /^PatternError: Range out of order at offset 1 in pattern \/\[z-a\]\/$/);
 });
 
 test('predefined character classes', () => {

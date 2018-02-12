@@ -62,8 +62,12 @@ const parseRanges = (input, contextOffset, contextInput) => {
 	let end = false;
 	let rangeStart = -1;
 
-	const pushCharacter = (code, offset) => {
+	const pushCharacter = (code, offset, length) => {
 		if (end) {
+			if (code < range.start) {
+				throw new PatternError('Range out of order', contextOffset + rangeStart, offset + length - rangeStart, contextInput);
+			}
+
 			end = false;
 			range.end = code;
 			range = null;
@@ -83,7 +87,7 @@ const parseRanges = (input, contextOffset, contextInput) => {
 
 	while ((match = token.exec(input)) !== null) {
 		if (match[1] !== undefined) {
-			pushCharacter(match[1].charCodeAt(0), match.index);
+			pushCharacter(match[1].charCodeAt(0), match.index, 1);
 		} else if (match[2] !== undefined) {
 			if (end) {
 				throw new PatternError('Range missing end', contextOffset + rangeStart, match.index - rangeStart, contextInput);
@@ -131,11 +135,11 @@ const parseRanges = (input, contextOffset, contextInput) => {
 				throw new Error('Unexpected');
 			}
 		} else if (match[3] !== undefined) {
-			pushCharacter(parseInt(match[3].substring(1), 16), match.index);
+			pushCharacter(parseInt(match[3].substring(1), 16), match.index, match[0].length);
 		} else if (match[4] !== undefined) {
-			pushCharacter(CHARACTER_ESCAPES.get(match[4]), match.index);
+			pushCharacter(CHARACTER_ESCAPES.get(match[4]), match.index, match[0].length);
 		} else if (match[5] !== undefined) {
-			pushCharacter(match[5].charCodeAt(0), match.index);
+			pushCharacter(match[5].charCodeAt(0), match.index, match[0].length);
 		} else {
 			const unexpected =
 				match[0] === '\\' ?
