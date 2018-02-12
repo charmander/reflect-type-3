@@ -95,8 +95,6 @@ pattern-metacharacter =
 hex-digit =
     HEXDIG /                   ; 0-9A-F
     %x61-66                    ; a-f
-
-nonzero = %x31-39
 ```
 
 `pattern-character` is any UTF-16 code unit that is not a `pattern-metacharacter`. Similarly, `range-plain-character` is any UTF-16 code unit that is not a `range-metacharacter`.
