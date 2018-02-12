@@ -150,28 +150,28 @@ const ret3 = require('reflect-type-3');
 ret3.parse(/[ab]+/.source)
 ```
 
-```json
-{
-    "type": "Disjunction",
-    "alternatives": [{
-        "type": "Alternative",
-        "terms": [{
-            "type": "Term",
-            "atom": {
-                "type": "CharacterClass",
-                "negated": false,
-                "ranges": [
-                    {"start": 97, end: 97},
-                    {"start": 98, end: 98}
-                ]
+```js
+({
+    type: 'Disjunction',
+    alternatives: [{
+        type: 'Alternative',
+        terms: [{
+            type: 'Term',
+            atom: {
+                type: 'CharacterClass',
+                negated: false,
+                ranges: [
+                    {start: 97, end: 97},
+                    {start: 98, end: 98},
+                ],
             },
-            "quantifier": {
-                "min": 1,
-                "max": Infinity
-            }
-        }]
-    }]
-}
+            quantifier: {
+                min: 1,
+                max: Infinity,
+            },
+        }],
+    }],
+})
 ```
 
 
