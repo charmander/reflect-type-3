@@ -298,7 +298,7 @@ test('predefined character classes', () => {
 				ret3.parse('[' + pattern.source + ']');
 			},
 			error => String(error) ===
-				`PatternError: Unexpected ${pattern.source.slice(0, 2)} at offset 1 in pattern /[${pattern.source}]/ – use an explicit set of whitespace characters instead`,
+				`PatternError: Unexpected ${pattern.source} at offset 1 in pattern /[${pattern.source}]/ – use an explicit set of whitespace characters instead`,
 		);
 	});
 });
