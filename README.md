@@ -63,11 +63,11 @@ range-character =
     "\" range-escape
 
 character-escape =
-    "n" /                      ; LF
-    "r" /                      ; CR
-    "t" /                      ; tab
-    "x" 2hex-digit /
-    "u" 4hex-digit
+    %s"n" /                      ; LF
+    %s"r" /                      ; CR
+    %s"t" /                      ; tab
+    %s"x" 2hex-digit /
+    %s"u" 4hex-digit
 
 predefined-range =
     "d" / "D" /                ; [0-9], [^0-9]
