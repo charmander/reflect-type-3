@@ -1,5 +1,3 @@
-[![Build status][ci image]][ci]
-
 A parser for a simplified, regular subset of JavaScript regular expressions that doesn’t support capturing.
 
 Because it’s regular, the subset doesn’t support:
@@ -173,7 +171,3 @@ ret3.parse(/[ab]+/.source)
     }],
 })
 ```
-
-
-  [ci]: https://travis-ci.org/charmander/reflect-type-3
-  [ci image]: https://api.travis-ci.org/charmander/reflect-type-3.svg
