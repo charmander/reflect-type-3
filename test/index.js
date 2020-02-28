@@ -145,6 +145,10 @@ test('quantifiers', () => {
 	}, /^PatternError: Malformed \{\} quantifier at offset 1 in pattern \/a\{1\/$/);
 
 	assert.throws(() => {
+		parse(/a{}/);
+	}, /^PatternError: Malformed \{\} quantifier at offset 1 in pattern \/a\{\}\/$/);
+
+	assert.throws(() => {
 		ret3.parse('?');
 	}, /^PatternError: Nothing to repeat at offset 0 in pattern \/\?\/$/);
 

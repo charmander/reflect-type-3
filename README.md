@@ -33,12 +33,12 @@ alternative = *term
 term = atom [ quantifier ]
 
 quantifier =
-    "*" /                      ; zero or more
-    "+" /                      ; one or more
-    "?" /                      ; zero or one
-    "{" *DIGIT "}" /           ; exactly count. counts are at most Number.MAX_SAFE_INTEGER.
-    "{" *DIGIT ",}" /          ; at least count
-    "{" *DIGIT "," *DIGIT "}"  ; at least first count and at most second. must be a non-empty range.
+    "*" /                        ; zero or more
+    "+" /                        ; one or more
+    "?" /                        ; zero or one
+    "{" 1*DIGIT "}" /            ; exactly count. counts are at most Number.MAX_SAFE_INTEGER.
+    "{" 1*DIGIT ",}" /           ; at least count
+    "{" 1*DIGIT "," 1*DIGIT "}"  ; at least first count and at most second. must be a non-empty range.
 
 atom =
     pattern-character /        ; the character itself
